@@ -1,4 +1,4 @@
-module hu.bme.aut.gergelyszaz.GenerateBGL
+module hu.gergelyszaz.GenerateBGL
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
@@ -22,7 +22,7 @@ Workflow {
 			}
 		}
 		language = StandardLanguage {
-			name = "hu.bme.aut.gergelyszaz.BGL"
+			name = "hu.gergelyszaz.BGL"
 			fileExtensions = "bgl"
 
 			serializer = {

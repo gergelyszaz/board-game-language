@@ -1,6 +1,6 @@
-grammar hu.bme.aut.gergelyszaz.BGL with org.eclipse.xtext.common.Terminals
+grammar hu.gergelyszaz.BGL with org.eclipse.xtext.common.Terminals
 
-generate bGL "http://www.bme.hu/aut/gergelyszaz/BGL"
+generate bGL "http://www.gergelyszaz.hu/BGL"
 
 Model:
     'GAME' name=ID
