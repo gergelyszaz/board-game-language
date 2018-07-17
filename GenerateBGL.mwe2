@@ -10,11 +10,8 @@ Workflow {
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
-				baseName = "bgl"
+				baseName = "board-game-language"
 				rootPath = rootPath
-				web = {
-					enabled = true
-				}
 			}
 			code = {
 				encoding = "UTF-8"
