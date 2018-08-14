@@ -11,6 +11,8 @@
     <properties>
         <xtextVersion>2.9.2</xtextVersion>
         <xtendVersion>2.9.0</xtendVersion>
+        <javaVersion>1.8</javaVersion>
+        <encoding>UTF-8</encoding>
     </properties>
 
     <build>
@@ -29,6 +31,18 @@
 
 
         <plugins>
+        
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>${javaVersion}</source>
+					<target>${javaVersion}</target>
+					<encoding>${encoding}</encoding>
+				</configuration>
+			</plugin>
+        
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -56,6 +70,7 @@
                     <cleanupDaemonThreads>false</cleanupDaemonThreads><!-- see https://bugs.eclipse.org/bugs/show_bug.cgi?id=475098#c3 -->
                 </configuration>
             </plugin>
+            
             <plugin>
                 <groupId>org.eclipse.xtend</groupId>
                 <artifactId>xtend-maven-plugin</artifactId>
