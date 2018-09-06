@@ -1,9 +1,26 @@
 # board-game-language
 
 Board Game Language is a DSL (Domain Specific Language), using which common board game rules can be written and interpreted by a machine.
-The syntax is written in Xtext and as a result a parser can be generated with it.
+The syntax is written in Xtext and a parser can be generated from it.
 
-## Syntax and semantics
+## Getting Started
+
+To generate the parser, run 
+
+```
+mvn install
+```
+
+### Prerequisites
+
+* JDK8
+* [Apache Maven](https://maven.apache.org/)
+
+## Running the tests
+
+No tests as of now.
+
+## The language
 
 A board game consists of a few elements:
 
@@ -96,7 +113,7 @@ If the current player loses by default if he does not respond in time.
 ```
 SELECT AS [variable] WHERE [condition]
 ```
-PLAN:
+PROPOSAL:
 Make it possible to skip turn if there was no response in time:
 ```
 SELECT AS [variable] WHERE [condition] OTHERWISE [actions]
@@ -107,7 +124,7 @@ Generate a random number and store it in [variable]. It's value will be [1st num
 ```
 ROLL [number] [number] - [number] AS [variable]
 ```
-PLAN:
+PROPOSAL:
 The previous method could be replaced with several ROLLs and taking to sum of their results.
 Generate a random number and store it in [variable]. It's value can be any integer between the two numbers:
 ```
@@ -148,22 +165,6 @@ Current player loses and is no longer in game.
 ```
 LOSE
 ```
-
-## Getting Started
-
-To generate the parser, run 
-```
-mvn install
-```
-
-### Prerequisites
-
-* JDK8
-* Apache Maven (https://maven.apache.org/)
-
-## Running the tests
-
-No tests as of now.
 
 ## Versioning
 
