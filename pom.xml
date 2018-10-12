@@ -33,15 +33,15 @@
         <plugins>
         
             <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
-				<configuration>
-					<source>${javaVersion}</source>
-					<target>${javaVersion}</target>
-					<encoding>${encoding}</encoding>
-				</configuration>
-			</plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>${javaVersion}</source>
+                    <target>${javaVersion}</target>
+                    <encoding>${encoding}</encoding>
+                </configuration>
+            </plugin>
         
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -93,16 +93,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-		<version>3.1.0</version>
+                <version>3.1.0</version>
                 <configuration>
                     <filesets combine.children="append">
                         <fileset>
                             <directory>${basedir}/src-gen</directory>
                         </fileset>
-						<fileset>
+                        <fileset>
                             <directory>${basedir}/xtend-gen</directory>
                         </fileset>
-						<fileset>
+                        <fileset>
                             <directory>${basedir}/model</directory>
                         </fileset>
                     </filesets>
