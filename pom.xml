@@ -9,8 +9,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <xtextVersion>2.10.0</xtextVersion>
-        <xtendVersion>2.9.0</xtendVersion>
+        <xtextVersion>2.15.0</xtextVersion>
+        <xtendVersion>2.15.0</xtendVersion>
         <javaVersion>1.8</javaVersion>
         <encoding>UTF-8</encoding>
     </properties>
@@ -194,8 +194,18 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.mwe2.launch</artifactId>
+            <version>2.9.1.201705291010</version>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.xtext</groupId>
-            <artifactId>org.eclipse.xtext</artifactId>
+            <artifactId>org.eclipse.xtext.common.types</artifactId>
+            <version>${xtextVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.xtext</groupId>
+            <artifactId>org.eclipse.xtext.xtext.generator</artifactId>
             <version>${xtextVersion}</version>
         </dependency>
         <dependency>
@@ -205,15 +215,8 @@
         </dependency>
         <dependency>
             <groupId>org.eclipse.xtext</groupId>
-            <artifactId>org.eclipse.xtext.xtext</artifactId>
-            <version>${xtextVersion}</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.xtext</groupId>
-            <artifactId>org.eclipse.xtext.xtext.generator</artifactId>
-            <version>${xtextVersion}</version>
-            <optional>true</optional>
+            <artifactId>xtext-antlr-generator</artifactId>
+            <version>[2.1.1, 3)</version>
         </dependency>
     </dependencies>
 </project>
