@@ -3,9 +3,23 @@
      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <name>Board Game Language</name>
+  <name>${project.groupId}:${project.artifactId}</name>
   <description>The language and parser that can be used to describe and process the rules of common board games.</description>
   <url>https://github.com/gergelyszaz/board-game-language</url>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+  
+  <developers>
+    <developer>
+      <name>Gergely Száz</name>
+      <email>gergelyszaz@gmail.com</email>
+      <url>https://github.com/gergelyszaz</url>
+    </developer>
+  </developers>
 
   <groupId>com.github.gergelyszaz.bgl</groupId>
   <artifactId>board-game-language</artifactId>
