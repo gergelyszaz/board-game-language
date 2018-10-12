@@ -3,6 +3,11 @@
      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <groupId>com.github.gergelyszaz.bgl</groupId>
+  <artifactId>board-game-language</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
   <name>${project.groupId}:${project.artifactId}</name>
   <description>The language and parser that can be used to describe and process the rules of common board games.</description>
   <url>https://github.com/gergelyszaz/board-game-language</url>
@@ -20,11 +25,12 @@
       <url>https://github.com/gergelyszaz</url>
     </developer>
   </developers>
-
-  <groupId>com.github.gergelyszaz.bgl</groupId>
-  <artifactId>board-game-language</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  
+  <scm>
+    <connection>scm:git:git://github.com/gergelyszaz/board-game-language</connection>
+    <developerConnection>scm:git:ssh://github.com:gergelyszaz/board-game-language.git</developerConnection>
+    <url>http://github.com/gergelyszaz/board-game-language/tree/master</url>
+  </scm>
 
   <properties>
     <xtextVersion>2.15.0</xtextVersion>
