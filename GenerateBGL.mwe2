@@ -1,12 +1,12 @@
-module hu.gergelyszaz.GenerateBGL
+module com.github.gergelyszaz.bgl.GenerateBGL
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
 
-var rootPath = ".."
+var rootPath = "."
 
 Workflow {
-	
+
 	component = XtextGenerator {
 		configuration = {
 			project = StandardProjectConfig {
@@ -19,7 +19,7 @@ Workflow {
 			}
 		}
 		language = StandardLanguage {
-			name = "hu.gergelyszaz.BGL"
+			name = "com.github.gergelyszaz.bgl.BoardGameLanguage"
 			fileExtensions = "bgl"
 
 			serializer = {

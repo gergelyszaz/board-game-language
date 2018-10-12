@@ -1,6 +1,6 @@
-grammar hu.gergelyszaz.BGL with org.eclipse.xtext.common.Terminals
+grammar com.github.gergelyszaz.bgl.BoardGameLanguage with org.eclipse.xtext.common.Terminals
 
-generate bGL "http://www.gergelyszaz.hu/BGL"
+generate bgl "http://www.github.com/gergelyszaz/board-game-language"
 
 Model:
     'GAME' name=ID
