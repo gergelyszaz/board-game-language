@@ -160,6 +160,7 @@
             <argument>/${project.basedir}/GenerateBGL.mwe2</argument>
             <argument>-p</argument>
             <argument>rootPath=/${project.basedir}/..</argument>
+			<argument>baseName=${project.file.parentFile.name}</argument>
           </arguments>
           <classpathScope>compile</classpathScope>
           <includePluginDependencies>true</includePluginDependencies>
