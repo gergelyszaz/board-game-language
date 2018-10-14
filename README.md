@@ -1,5 +1,6 @@
 # board-game-language
 [![Build Status](https://travis-ci.com/gergelyszaz/board-game-language.svg?branch=master)](https://travis-ci.com/gergelyszaz/board-game-language)
+[![Build Status](https://dev.azure.com/szazgergely/szazgergely/_apis/build/status/board-game-language)](https://dev.azure.com/szazgergely/szazgergely/_apis/build/status/board-game-language?branchName=master)
 
 Board Game Language is a DSL (Domain Specific Language), using which common board game rules can be written and interpreted by a machine.
 The syntax is written in Xtext and a parser can be generated from it.
