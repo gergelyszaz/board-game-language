@@ -26,5 +26,10 @@ action "deploy snapshot" {
   uses = "gergelyszaz/action-maven-cli@master"
   args = "deploy"
   needs = ["master only"]
-  secrets = ["OSSRH_PASSWORD", "OSSRH_USERNAME"]
+  secrets = [
+    "OSSRH_PASSWORD",
+  ]
+  env = {
+    OSSRH_USERNAME = "gergelyszaz"
+  }
 }
