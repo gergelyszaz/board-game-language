@@ -11,11 +11,6 @@ action "mvn clean install" {
   args = "clean install"
 }
 
-workflow "pull-request-test" {
-  on = "pull_request"
-  resolves = ["publish snapshot"]
-}
-
 action "publish snapshot" {
   uses = "LucaFeger/action-maven-cli@9d8f23af091bd6f5f0c05c942630939b6e53ce44"
   args = "clean install"
