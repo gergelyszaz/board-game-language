@@ -13,10 +13,10 @@ action "mvn clean install" {
 
 workflow "pull-request-test" {
   on = "pull_request"
-  resolves = ["GitHub Action for Maven"]
+  resolves = ["publish snapshot"]
 }
 
-action "GitHub Action for Maven" {
+action "publish snapshot" {
   uses = "LucaFeger/action-maven-cli@9d8f23af091bd6f5f0c05c942630939b6e53ce44"
   args = "clean install"
 }
@@ -28,7 +28,8 @@ action "master only" {
 }
 
 action "deploy snapshot" {
-  uses = "LucaFeger/action-maven-cli@9d8f23af091bd6f5f0c05c942630939b6e53ce44"
+  uses = "gergelyszaz/action-maven-cli@master"
   args = "deploy"
   needs = ["master only"]
+  secrets = ["OSSRH_PASSWORD", "OSSRH_USERNAME"]
 }
