@@ -24,7 +24,7 @@ action "master only" {
 
 action "deploy snapshot" {
   uses = "gergelyszaz/action-maven-cli@master"
-  args = "deploy"
+  args = "clean install deploy"
   needs = ["master only"]
   secrets = [
     "OSSRH_PASSWORD",
