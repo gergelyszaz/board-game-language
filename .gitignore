@@ -1,0 +1,9 @@
+/target/
+.classpath
+.project
+.settings
+.vscode
+bin
+src-gen
+xtend-gen
+model/generated
