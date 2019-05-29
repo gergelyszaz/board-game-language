@@ -1,0 +1,12 @@
+com.github.gergelyszaz.bgl
+com.github.gergelyszaz.bgl.bgl
+com.github.gergelyszaz.bgl.bgl.impl
+com.github.gergelyszaz.bgl.bgl.util
+com.github.gergelyszaz.bgl.generator
+com.github.gergelyszaz.bgl.manager
+com.github.gergelyszaz.bgl.parser.antlr
+com.github.gergelyszaz.bgl.parser.antlr.internal
+com.github.gergelyszaz.bgl.scoping
+com.github.gergelyszaz.bgl.serializer
+com.github.gergelyszaz.bgl.services
+com.github.gergelyszaz.bgl.validation
