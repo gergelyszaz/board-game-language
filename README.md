@@ -1,5 +1,6 @@
 # board-game-language
 [![Build Status](https://travis-ci.com/gergelyszaz/board-game-language.svg?branch=master)](https://travis-ci.com/gergelyszaz/board-game-language)
+![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.gergelyszaz.bgl/board-game-language/badge.svg?style=flat) 
 
 Board Game Language is a DSL (Domain Specific Language), using which common board game rules can be written and interpreted by a machine.
 The syntax is written in Xtext and a parser can be generated from it.
