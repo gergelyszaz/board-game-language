@@ -1,30 +1,38 @@
-workflow "build" {
-  on = "push"
+workflow "Test Pull Request" {
+  on = "pull_request"
   resolves = [
-    "deploy snapshot",
-    "mvn clean install",
+    "Test"
   ]
 }
 
-action "mvn clean install" {
+workflow "Deploy Snapshot" {
+  on = "push"
+  resolves = [
+    "Deploy"
+  ]
+}
+
+action "Compile" {
   uses = "LucaFeger/action-maven-cli@9d8f23af091bd6f5f0c05c942630939b6e53ce44"
-  args = "clean install"
+  args = "clean compile"
+}
+
+action "Test" {
+  uses = "LucaFeger/action-maven-cli@9d8f23af091bd6f5f0c05c942630939b6e53ce44"
+  needs = "Compile"
+  args = "test"
 }
 
 action "master only" {
   uses = "actions/bin/filter@712ea355b0921dd7aea27d81e247c48d0db24ee4"
-  needs = ["mvn clean install"]
   args = "branch master"
 }
 
-action "deploy snapshot" {
+action "Deploy" {
   uses = "gergelyszaz/action-maven-cli@master"
-  args = "clean install deploy"
+  args = "clean deploy"
   needs = ["master only"]
   secrets = [
-    "OSSRH_PASSWORD",
+    "OSSRH_PASSWORD", "OSSRH_USERNAME"
   ]
-  env = {
-    OSSRH_USERNAME = "gergelyszaz"
-  }
 }
