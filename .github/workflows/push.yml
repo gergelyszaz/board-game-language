@@ -1,0 +1,23 @@
+on: push
+name: build
+jobs:
+  masterOnly:
+    name: master only
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: master only
+      uses: actions/bin/filter@712ea355b0921dd7aea27d81e247c48d0db24ee4
+      with:
+        args: branch master
+    - name: mvn clean install
+      uses: LucaFeger/action-maven-cli@9d8f23af091bd6f5f0c05c942630939b6e53ce44
+      with:
+        args: clean install
+    - name: deploy snapshot
+      uses: gergelyszaz/action-maven-cli@master
+      env:
+        OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+        OSSRH_USERNAME: gergelyszaz
+      with:
+        args: clean install deploy
