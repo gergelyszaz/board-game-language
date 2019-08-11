@@ -316,7 +316,7 @@
           <configuration>
             <lineEnding>CRLF</lineEnding>
             <encoding>${encoding}</encoding>
-            <configFile>${project.basedir}/src/main/resources/eclipse/eclipse-formatter-config.xml</configFile>
+            <configFile>${project.basedir}/eclipse-formatter-config.xml</configFile>
           </configuration>
         </plugin>
       </plugins>
