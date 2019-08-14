@@ -1,7 +1,8 @@
 workflow "Test Pull Request" {
   on = "pull_request"
   resolves = [
-    "Test"
+    "Test",
+    "Validate Source Format"
   ]
 }
 
@@ -15,6 +16,11 @@ workflow "Deploy Snapshot" {
 action "Compile" {
   uses = "LucaFeger/action-maven-cli@9d8f23af091bd6f5f0c05c942630939b6e53ce44"
   args = "clean compile"
+}
+
+action "Validate Source Format" {
+  uses = "LucaFeger/action-maven-cli@9d8f23af091bd6f5f0c05c942630939b6e53ce44"
+  args = "formatter:validate"
 }
 
 action "Test" {
