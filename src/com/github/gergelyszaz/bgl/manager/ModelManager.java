@@ -51,7 +51,6 @@ public class ModelManager {
 		return model;
 	}
 
-
 	public Model Get(String name) throws Exception {
 		Model m = models.get(name);
 		if (m == null)
