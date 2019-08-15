@@ -7,7 +7,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -19,7 +18,8 @@ public class ModelManager {
 
 	public ModelManager() {
 		new org.eclipse.emf.mwe.utils.StandaloneSetup().setPlatformUri("../");
-		Injector injector = new BoardGameLanguageStandaloneSetup().createInjectorAndDoEMFRegistration();
+		Injector injector =
+				new BoardGameLanguageStandaloneSetup().createInjectorAndDoEMFRegistration();
 		resourceSet = injector.getInstance(XtextResourceSet.class);
 		resourceSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 	}
@@ -39,9 +39,10 @@ public class ModelManager {
 		InputStream in = new ByteArrayInputStream(gameString.getBytes());
 		return LoadModel(in);
 	}
-	
-	public Model LoadModel(InputStream stream) throws Exception{
-		Resource resource = resourceSet.createResource(URI.createURI("dummy:/" + numberOfGames++ + ".bgl"));
+
+	public Model LoadModel(InputStream stream) throws Exception {
+		Resource resource =
+				resourceSet.createResource(URI.createURI("dummy:/" + numberOfGames++ + ".bgl"));
 		resource.load(stream, resourceSet.getLoadOptions());
 		Model model = (Model) resource.getContents().get(0);
 		if (models.contains(model.getName()))
@@ -49,11 +50,11 @@ public class ModelManager {
 		models.put(model.getName(), model);
 		return model;
 	}
-	
 
 	public Model Get(String name) throws Exception {
 		Model m = models.get(name);
-		if (m == null) throw new Exception("Game " + name + " not found!");
+		if (m == null)
+			throw new Exception("Game " + name + " not found!");
 		return m;
 
 	}
