@@ -12,6 +12,7 @@ Workflow {
 		configuration = {
 			project = StandardProjectConfig {
 				baseName = baseName
+				mavenLayout = true
 				rootPath = rootPath
 			}
 			code = {
