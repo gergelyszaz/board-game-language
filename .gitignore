@@ -3,7 +3,7 @@
 .project
 .settings
 .vscode
+.antlr-generator-*.jar
 bin
-src-gen
-xtend-gen
+xtext-gen
 model/generated

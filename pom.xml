@@ -26,12 +26,15 @@
     <url>http://github.com/gergelyszaz/board-game-language/tree/master</url>
     <tag>HEAD</tag>
   </scm>
+
   <properties>
     <xtextVersion>2.18.0</xtextVersion>
-    <xtendVersion>2.18.0</xtendVersion>
-    <javaVersion>1.8</javaVersion>
-    <encoding>UTF-8</encoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+    <junit.jupiter.version>5.5.1</junit.jupiter.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
   <profiles>
     <profile>
       <id>disable-java8-doclint</id>
@@ -52,53 +55,6 @@
       </activation>
       <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                  <filesets combine.children="append">
-                    <fileset>
-                      <directory>${basedir}/src-gen</directory>
-                    </fileset>
-                    <fileset>
-                      <directory>${basedir}/xtend-gen</directory>
-                    </fileset>
-                    <fileset>
-                      <directory>${basedir}/model</directory>
-                    </fileset>
-                  </filesets>
-                </configuration>
-              </plugin>
-              <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.9.1</version>
-                <executions>
-                  <execution>
-                    <id>add-source</id>
-                    <phase>initialize</phase>
-                    <goals>
-                      <goal>add-source</goal>
-                      <goal>add-resource</goal>
-                    </goals>
-                    <configuration>
-                      <sources>
-                        <source>src-gen</source>
-                      </sources>
-                      <resources>
-                        <resource>
-                          <directory>src-gen</directory>
-                          <excludes>
-                            <exclude>**/*.java</exclude>
-                            <exclude>**/*.g</exclude>
-                          </excludes>
-                        </resource>
-                      </resources>
-                    </configuration>
-                  </execution>
-                </executions>
-              </plugin>
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -161,32 +117,38 @@
     </snapshotRepository>
   </distributionManagement>
   <build>
-    <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-          <exclude>**/*.xtend</exclude>
-          <exclude>**/*.xtext</exclude>
-          <exclude>**/*.mwe2</exclude>
-        </excludes>
-      </resource>
-    </resources>
     <plugins>
-	  <plugin>
-		<groupId>org.apache.maven.plugins</groupId>
-		<artifactId>maven-javadoc-plugin</artifactId>
-		<version>3.1.0</version>
-		<configuration>
-		  <reportOutputDirectory>${basedir}/docs</reportOutputDirectory>
-		  <destDir>.</destDir>
-		</configuration>
-	  </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <reportOutputDirectory>${basedir}/docs</reportOutputDirectory>
+          <destDir>.</destDir>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/main/xtext-gen</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
           <autoVersionSubmodules>true</autoVersionSubmodules>
@@ -199,16 +161,6 @@
             <version>1.9.5</version>
           </dependency>
         </dependencies>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <source>${javaVersion}</source>
-          <target>${javaVersion}</target>
-          <encoding>${encoding}</encoding>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -239,26 +191,7 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.eclipse.xtend</groupId>
-        <artifactId>xtend-maven-plugin</artifactId>
-        <version>${xtendVersion}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <outputDirectory>${basedir}/xtend-gen</outputDirectory>
-          <testOutputDirectory>${basedir}/xtend-gen</testOutputDirectory>
-        </configuration>
-      </plugin>
-      
-      <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.5.5</version>
         <configuration>
           <descriptors>
             <descriptor>jar-with-ecore-model.xml</descriptor>
@@ -315,8 +248,7 @@
           <version>2.10.0</version>
           <configuration>
             <lineEnding>CRLF</lineEnding>
-            <encoding>${encoding}</encoding>
-            <configFile>${project.basedir}/eclipse-formatter-config.xml</configFile>
+            <configFile>eclipse-formatter-config.xml</configFile>
           </configuration>
         </plugin>
       </plugins>
@@ -362,6 +294,12 @@
       <groupId>com.google.inject</groupId>
       <artifactId>guice</artifactId>
       <version>4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
